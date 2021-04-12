@@ -11,6 +11,11 @@ import BowlingGame.Game;
 public class BowlingTest {
 	private Game g;
 	
+	@Before
+	public void setUp() {
+		g = new Game();
+	}
+	
 	@Test
 	public void testGutterGame() {
 		Game g = new Game();
@@ -18,6 +23,16 @@ public class BowlingTest {
 			g.roll(0);
 		assertEquals(0,g.score());
 	}
+	
+	@Test
+	public void testAllOnes() {
+		Game g = new Game();
+		for(int a = 0 ; a < 20; a++) {
+			g.roll(1);
+		}
+		assertEquals(20,g.score());
+	}
+
 	
 	
 }
